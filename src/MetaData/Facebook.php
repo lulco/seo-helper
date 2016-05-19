@@ -15,9 +15,16 @@ namespace SeoHelper\MetaData;
  */
 trait Facebook
 {
-    abstract function set($key, $value);
+    /**
+     * @param string $key
+     * @param string|array $value
+     */
+    abstract protected function set($key, $value);
     
-    abstract function get($key = null);
+    /**
+     * @param string|null $key
+     */
+    abstract public function get($key = null);
     
     public function setOgSiteName($siteName)
     {
