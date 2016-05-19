@@ -33,7 +33,7 @@ class BaseMetaData
      * @param string|array $value
      * @return BaseMetaData
      */
-    protected final function set($key, $value)
+    final protected function set($key, $value)
     {
         if (!is_array($value)) {
             $value = [$value];
@@ -48,7 +48,7 @@ class BaseMetaData
      * @param string $key
      * @return BaseMetaData
      */
-    protected final function reset($key, $newValue = null)
+    final protected function reset($key, $newValue = null)
     {
         if ($newValue !== null) {
             return $this->set($key, $newValue);
@@ -65,7 +65,7 @@ class BaseMetaData
      * @param string|array $value
      * @return BaseMetaData
      */
-    protected final function add($key, $value)
+    final protected function add($key, $value)
     {
         if (!is_array($value)) {
             $value = [$value];

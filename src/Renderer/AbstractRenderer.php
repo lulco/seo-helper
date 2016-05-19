@@ -10,7 +10,7 @@ abstract class AbstractRenderer implements RendererInterface
     
     protected $preprocessors = [];
     
-    public final function init()
+    final public function init()
     {
         $this->initPreprocessors();
     }
