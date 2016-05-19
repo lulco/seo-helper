@@ -15,6 +15,10 @@ namespace SeoHelper\MetaData;
  */
 trait Facebook
 {
+    abstract function set($key, $value);
+    
+    abstract function get($key = null);
+    
     public function setOgSiteName($siteName)
     {
         return $this->set('og:site_name', $siteName);

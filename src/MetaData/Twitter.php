@@ -14,5 +14,7 @@ namespace SeoHelper\MetaData;
  */
 trait Twitter
 {
+    abstract function set($key, $value);
     
+    abstract function get($key = null);
 }
