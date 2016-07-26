@@ -2,6 +2,9 @@
 
 ### [Unreleased][unreleased]
 
+#### Fixed
+- Removed aliases from DefaultGenerator
+
 ### [0.1.0] - 2016-05-19
 #### Added
 - BaseMetaData

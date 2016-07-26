@@ -14,10 +14,6 @@ class DefaultGenerator extends BaseGenerator
         $this->addRenderer(new DefaultRenderer());
         $this->addRenderer(new FacebookRenderer());
         $this->addRenderer(new TwitterRenderer());
-        
-        $metaData->alias('title', ['og:title', 'twitter:title']);
-        $metaData->alias('description', ['og:description', 'twitter:description']);
-        $metaData->alias('canonical', 'og:url');
     }
     
     protected function sortMetaData($metaData)
