@@ -13,7 +13,7 @@ class BaseGenerator implements GeneratorInterface
     {
         return implode("\n", $this->prepare($metaData));
     }
-    
+
     private function prepare(BaseMetaData $metaData)
     {
         $items = [];
@@ -36,7 +36,7 @@ class BaseGenerator implements GeneratorInterface
         }
         return $items;
     }
-    
+
     public function addRenderer(RendererInterface $renderer)
     {
         $renderer->init();
@@ -45,12 +45,12 @@ class BaseGenerator implements GeneratorInterface
         }
         return $this;
     }
-    
+
     protected function sortMetaData($metaData)
     {
         return $metaData;
     }
-    
+
     private function findRenderer($type)
     {
         $renderer = isset($this->renderers[$type]) ? $this->renderers[$type] : null;

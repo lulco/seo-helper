@@ -13,7 +13,7 @@ class TwittertRendererTest extends PHPUnit_Framework_TestCase
         $this->assertTrue(is_array($renderer->getTypes()));
         $this->assertEquals(['twitter'], $renderer->getTypes());
     }
-    
+
     public function testDefault()
     {
         $renderer = new TwitterRenderer();
@@ -26,6 +26,7 @@ class TwittertRendererTest extends PHPUnit_Framework_TestCase
         $renderer = new TwitterRenderer();
         $renderer->init();
         $this->assertEquals('<meta property="twitter:title" content="Second title | First title">', $renderer->render('twitter', 'twitter:title', ['First title', 'Second <strong>title</strong>']));
+        $this->assertEquals('<meta property="twitter:title" content="&quot;Second&quot; title | \'First\' title">', $renderer->render('twitter', 'twitter:title', ['\'First\' title', '"Second" <strong>title</strong>']));
     }
 
     public function testDescription()
@@ -33,5 +34,6 @@ class TwittertRendererTest extends PHPUnit_Framework_TestCase
         $renderer = new TwitterRenderer();
         $renderer->init();
         $this->assertEquals('<meta property="twitter:description" content="First description Second description">', $renderer->render('twitter', 'twitter:description', ['First <strong>description</strong>', 'Second description']));
+        $this->assertEquals('<meta property="twitter:description" content="\'First\' description &quot;Second&quot; description">', $renderer->render('twitter', 'twitter:description', ['\'First\' <strong>description</strong>', '"Second" description']));
     }
 }

@@ -14,17 +14,17 @@ class DefaultRenderer extends AbstractRenderer
     {
         return parent::getPattern($type) ?: $this->types['default'];
     }
-    
+
     protected function initPreprocessors()
     {
         $this->setPreprocessor('title', function ($value) {
             return strip_tags(implode(' | ', array_reverse($value)));
         });
         $this->setPreprocessor('description', function ($value) {
-            return strip_tags(implode(' ', $value));
+            return htmlentities(strip_tags(implode(' ', $value)));
         });
         $this->setPreprocessor('keywords', function ($value) {
-            return strip_tags(implode(', ', array_unique($value)));
+            return htmlentities(strip_tags(implode(', ', array_unique($value))));
         });
     }
 }

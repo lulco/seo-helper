@@ -19,18 +19,18 @@ class MetaDataControlTest extends PHPUnit_Framework_TestCase
         $metaData->setDescription('My description');
         $metaData->addOgImage('og-image-1');
         $metaData->addOgImage('og-image-2');
-        
+
         $generator = new DefaultGenerator($metaData);
-        
+
         $component = new MetaDataControl($metaData, $generator);
-        
+
         ob_start();
         $component->render();
         $result = ob_get_contents();
         ob_end_clean();
         $this->assertEquals("<title>Second title | First title</title>\n<meta name=\"description\" content=\"My description\">\n<meta property=\"og:image\" content=\"og-image-1\">\n<meta property=\"og:image\" content=\"og-image-2\">", $result);
     }
-    
+
     public function testComponentWithEmptyBaseGenerator()
     {
         $metaData = new MetaData();
@@ -39,18 +39,18 @@ class MetaDataControlTest extends PHPUnit_Framework_TestCase
         $metaData->setDescription('My description');
         $metaData->addOgImage('og-image-1');
         $metaData->addOgImage('og-image-2');
-        
+
         $generator = new BaseGenerator($metaData);
-        
+
         $component = new MetaDataControl($metaData, $generator);
-        
+
         ob_start();
         $component->render();
         $result = ob_get_contents();
         ob_end_clean();
         $this->assertEquals('', $result);
     }
-    
+
     public function testComponentWithBaseGenerator()
     {
         $metaData = new MetaData();
@@ -59,13 +59,13 @@ class MetaDataControlTest extends PHPUnit_Framework_TestCase
         $metaData->setDescription('My description');
         $metaData->addOgImage('og-image-1');
         $metaData->addOgImage('og-image-2');
-        
+
         $generator = new BaseGenerator($metaData);
         $renderer = new DefaultRenderer();
         $generator->addRenderer($renderer);
-        
+
         $component = new MetaDataControl($metaData, $generator);
-        
+
         ob_start();
         $component->render();
         $result = ob_get_contents();
