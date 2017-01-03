@@ -2,6 +2,10 @@
 
 ### [Unreleased][unreleased]
 
+### [0.1.3] - 2017-01-03
+#### Fixed
+- Changed escaping function from htmlentities to htmlspecialchars
+
 ### [0.1.2] - 2017-01-02
 #### Fixed
 - Quotes escaping in meta contents
@@ -14,10 +18,11 @@
 #### Added
 - BaseMetaData
 - Facebook and Twitter traits for meta data
-- renderers
+- Renderers
 - Nette component
 
-[unreleased]: https://github.com/lulco/seo-helper/compare/0.1.2...HEAD
+[unreleased]: https://github.com/lulco/seo-helper/compare/0.1.3...HEAD
+[0.1.3]: https://github.com/lulco/seo-helper/compare/0.1.2...0.1.3
 [0.1.2]: https://github.com/lulco/seo-helper/compare/0.1.1...0.1.2
 [0.1.1]: https://github.com/lulco/seo-helper/compare/0.1.0...0.1.1
 [0.1.0]: https://github.com/lulco/seo-helper/compare/0.0.0...0.1.0
