@@ -42,6 +42,7 @@ class DefaultRendererTest extends PHPUnit_Framework_TestCase
         $renderer->init();
         $this->assertEquals('<meta name="description" content="First description Second description">', $renderer->render('description', 'description', ['First <strong>description</strong>', 'Second description']));
         $this->assertEquals('<meta name="description" content="\'First\' description &quot;Second&quot; description">', $renderer->render('description', 'description', ['\'First\' <strong>description</strong>', '"Second" description']));
+        $this->assertEquals('<meta name="description" content="&quot;Pán veľkomožný&quot; očakávam, že toto bude fungovať „bez problémov“">', $renderer->render('description', 'description', ['"Pán veľkomožný" <strong>očakávam</strong>, že toto bude fungovať „bez problémov“']));
     }
 
     public function testKeywords()
@@ -50,5 +51,6 @@ class DefaultRendererTest extends PHPUnit_Framework_TestCase
         $renderer->init();
         $this->assertEquals('<meta name="keywords" content="key1, key2, key3">', $renderer->render('keywords', 'keywords', ['key1', 'key2', 'key3']));
         $this->assertEquals('<meta name="keywords" content="key1, \'key2\', &quot;key3&quot;">', $renderer->render('keywords', 'keywords', ['key1', '\'key2\'', '"key3"']));
+        $this->assertEquals('<meta name="keywords" content="&quot;Pán veľkomožný&quot; očakávam, že toto bude fungovať „bez problémov“">', $renderer->render('keywords', 'keywords', ['"Pán veľkomožný" <strong>očakávam</strong>, že toto bude fungovať „bez problémov“']));
     }
 }

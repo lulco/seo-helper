@@ -11,10 +11,10 @@ class TwitterRenderer extends AbstractRenderer
     protected function initPreprocessors()
     {
         $this->setPreprocessor('twitter:title', function ($value) {
-            return htmlentities(strip_tags(implode(' | ', array_reverse($value))));
+            return htmlspecialchars(strip_tags(implode(' | ', array_reverse($value))));
         });
         $this->setPreprocessor('twitter:description', function ($value) {
-            return htmlentities(strip_tags(implode(' ', $value)));
+            return htmlspecialchars(strip_tags(implode(' ', $value)));
         });
     }
 }

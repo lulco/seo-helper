@@ -21,10 +21,10 @@ class DefaultRenderer extends AbstractRenderer
             return strip_tags(implode(' | ', array_reverse($value)));
         });
         $this->setPreprocessor('description', function ($value) {
-            return htmlentities(strip_tags(implode(' ', $value)));
+            return htmlspecialchars(strip_tags(implode(' ', $value)));
         });
         $this->setPreprocessor('keywords', function ($value) {
-            return htmlentities(strip_tags(implode(', ', array_unique($value))));
+            return htmlspecialchars(strip_tags(implode(', ', array_unique($value))));
         });
     }
 }

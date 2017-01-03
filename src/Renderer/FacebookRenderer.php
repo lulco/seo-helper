@@ -12,10 +12,10 @@ class FacebookRenderer extends AbstractRenderer
     protected function initPreprocessors()
     {
         $this->setPreprocessor('og:title', function ($value) {
-            return htmlentities(strip_tags(implode(' | ', array_reverse($value))));
+            return htmlspecialchars(strip_tags(implode(' | ', array_reverse($value))));
         });
         $this->setPreprocessor('og:description', function ($value) {
-            return htmlentities(strip_tags(implode(' ', $value)));
+            return htmlspecialchars(strip_tags(implode(' ', $value)));
         });
     }
 }
