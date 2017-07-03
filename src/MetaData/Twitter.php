@@ -18,8 +18,8 @@ trait Twitter
      * @param string $key
      * @param string|array $value
      */
-    abstract protected function set($key, $value);
-    
+    abstract public function set($key, $value);
+
     /**
      * @param string|null $key
      */

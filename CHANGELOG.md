@@ -2,6 +2,10 @@
 
 ### [Unreleased][unreleased]
 
+#### Changed
+- Methods of BaseMetaData: set, add, reset are public
+- Methods of BaseMetaData: get, alias are final
+
 ### [0.1.3] - 2017-01-03
 #### Fixed
 - Changed escaping function from htmlentities to htmlspecialchars

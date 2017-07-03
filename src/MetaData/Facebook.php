@@ -19,18 +19,18 @@ trait Facebook
      * @param string $key
      * @param string|array $value
      */
-    abstract protected function set($key, $value);
-    
+    abstract public function set($key, $value);
+
     /**
      * @param string|null $key
      */
     abstract public function get($key = null);
-    
+
     public function setOgSiteName($siteName)
     {
         return $this->set('og:site_name', $siteName);
     }
-    
+
     public function getOgSiteName()
     {
         return $this->get('og:site_name');
