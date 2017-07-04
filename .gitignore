@@ -1,3 +1,5 @@
-coverage/
-build/
-composer.lock
+/coverage
+/build
+/composer.lock
+/nbproject
+/vendor
