@@ -2,6 +2,7 @@
 
 ### [Unreleased][unreleased]
 
+### [0.1.4] - 2017-07-04
 #### Changed
 - Methods of BaseMetaData: set, add, reset are public
 - Methods of BaseMetaData: get, alias are final
@@ -25,7 +26,8 @@
 - Renderers
 - Nette component
 
-[unreleased]: https://github.com/lulco/seo-helper/compare/0.1.3...HEAD
+[unreleased]: https://github.com/lulco/seo-helper/compare/0.1.4...HEAD
+[0.1.4]: https://github.com/lulco/seo-helper/compare/0.1.3...0.1.4
 [0.1.3]: https://github.com/lulco/seo-helper/compare/0.1.2...0.1.3
 [0.1.2]: https://github.com/lulco/seo-helper/compare/0.1.1...0.1.2
 [0.1.1]: https://github.com/lulco/seo-helper/compare/0.1.0...0.1.1
