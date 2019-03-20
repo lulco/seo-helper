@@ -1,5 +1,5 @@
 # SEO helper
-Library for more simple work with meta data
+Library for easier work with meta data
 
 [![Build Status](https://travis-ci.org/lulco/seo-helper.svg?branch=master)](https://travis-ci.org/lulco/seo-helper)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/lulco/seo-helper/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/lulco/seo-helper/?branch=master)
