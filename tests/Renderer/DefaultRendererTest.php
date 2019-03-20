@@ -36,6 +36,20 @@ class DefaultRendererTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(['<link rel="canonical" href="canonical-url">'], $renderer->render('canonical', 'canonical', ['canonical-url']));
     }
 
+    public function testNext()
+    {
+        $renderer = new DefaultRenderer();
+        $renderer->init();
+        $this->assertEquals(['<link rel="next" href="next-url">'], $renderer->render('next', 'next', ['next-url']));
+    }
+
+    public function testPrev()
+    {
+        $renderer = new DefaultRenderer();
+        $renderer->init();
+        $this->assertEquals(['<link rel="prev" href="prev-url">'], $renderer->render('prev', 'prev', ['prev-url']));
+    }
+    
     public function testDescription()
     {
         $renderer = new DefaultRenderer();

@@ -1,6 +1,8 @@
 ## Change Log
 
 ### [Unreleased][unreleased]
+#### Added
+- Added support for next and prev meta data
 
 ### [0.1.4] - 2017-07-04
 #### Changed

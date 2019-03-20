@@ -8,6 +8,8 @@ class DefaultRenderer extends AbstractRenderer
         'default' => '<meta name="{$key}" content="{$value}">',
         'title' => '<title>{$value}</title>',
         'canonical' => '<link rel="canonical" href="{$value}">',
+        'next' => '<link rel="next" href="{$value}">',
+        'prev' => '<link rel="prev" href="{$value}">',
     ];
 
     protected function getPattern($type)
