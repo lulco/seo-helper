@@ -11,7 +11,7 @@ class DefaultRendererTest extends PHPUnit_Framework_TestCase
     {
         $renderer = new DefaultRenderer();
         $this->assertTrue(is_array($renderer->getTypes()));
-        $this->assertEquals(['default', 'title', 'canonical'], $renderer->getTypes());
+        $this->assertEquals(['default', 'title', 'canonical', 'next', 'prev'], $renderer->getTypes());
     }
 
     public function testDefault()
