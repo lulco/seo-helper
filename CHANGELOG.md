@@ -2,6 +2,7 @@
 
 ### [Unreleased][unreleased]
 
+### [0.3.0] - 2019-11-18
 #### Added
 - Added missing magic reset* methods
 
@@ -33,7 +34,8 @@
 - Renderers
 - Nette component
 
-[unreleased]: https://github.com/lulco/seo-helper/compare/0.2.0...HEAD
+[unreleased]: https://github.com/lulco/seo-helper/compare/0.3.0...HEAD
+[0.3.0]: https://github.com/lulco/seo-helper/compare/0.2.0...0.3.0
 [0.2.0]: https://github.com/lulco/seo-helper/compare/0.1.4...0.2.0
 [0.1.4]: https://github.com/lulco/seo-helper/compare/0.1.3...0.1.4
 [0.1.3]: https://github.com/lulco/seo-helper/compare/0.1.2...0.1.3
