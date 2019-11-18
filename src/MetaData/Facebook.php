@@ -3,14 +3,17 @@
 namespace SeoHelper\MetaData;
 
 /**
- * @method BaseMetaData setOgTitle(string $ogTitle)
  * @method BaseMetaData addOgTitle(string $ogTitle)
- * @method BaseMetaData setOgDescription(string $ogDescription)
+ * @method BaseMetaData setOgTitle(string $ogTitle)
+ * @method BaseMetaData resetOgTitle(string|null $ogTitle = null)
  * @method BaseMetaData addOgDescription(string $ogDescription)
+ * @method BaseMetaData setOgDescription(string $ogDescription)
+ * @method BaseMetaData resetOgDescription(string|null $ogDescription = null)
  * @method BaseMetaData setOgType(string $ogType)
  * @method BaseMetaData setOgUrl(string $ogUrl)
- * @method BaseMetaData setOgImage(string $image)
  * @method BaseMetaData addOgImage(string $image)
+ * @method BaseMetaData setOgImage(string $image)
+ * @method BaseMetaData resetOgImage(string|null $image = null)
  * @method BaseMetaData setFbAdmins(string $fbAdmins)
  */
 trait Facebook

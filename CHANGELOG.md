@@ -2,6 +2,9 @@
 
 ### [Unreleased][unreleased]
 
+#### Added
+- Added missing magic reset* methods
+
 ### [0.2.0] - 2019-03-20
 #### Added
 - Added support for next and prev meta data

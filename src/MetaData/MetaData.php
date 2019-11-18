@@ -3,12 +3,14 @@
 namespace SeoHelper\MetaData;
 
 /**
- * @method BaseMetaData setTitle(string $title)
  * @method BaseMetaData addTitle(string $title)
- * @method BaseMetaData setKeywords(string|array $keywords)
+ * @method BaseMetaData setTitle(string $title)
+ * @method BaseMetaData resetTitle(string|null $title = null)
  * @method BaseMetaData addKeywords(string|array $keywords)
- * @method BaseMetaData setDescription(string $description)
+ * @method BaseMetaData setKeywords(string|array $keywords)
  * @method BaseMetaData addDescription(string $description)
+ * @method BaseMetaData setDescription(string $description)
+ * @method BaseMetaData resetDescription(string|null $description = null)
  * @method BaseMetaData setRobots(string $robots)
  * @method BaseMetaData setCanonical(string $canonicalUrl)
  */
