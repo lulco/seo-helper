@@ -2,6 +2,7 @@
 
 ### [Unreleased][unreleased]
 
+### [0.3.1] - 2021-04-26
 #### Fixed
 - htmlspecialchars and strip_tags for urls (canonical, prev, next, og:url, twitter:url)
 
@@ -37,7 +38,8 @@
 - Renderers
 - Nette component
 
-[unreleased]: https://github.com/lulco/seo-helper/compare/0.3.0...HEAD
+[unreleased]: https://github.com/lulco/seo-helper/compare/0.3.1...HEAD
+[0.3.1]: https://github.com/lulco/seo-helper/compare/0.3.0...0.3.1
 [0.3.0]: https://github.com/lulco/seo-helper/compare/0.2.0...0.3.0
 [0.2.0]: https://github.com/lulco/seo-helper/compare/0.1.4...0.2.0
 [0.1.4]: https://github.com/lulco/seo-helper/compare/0.1.3...0.1.4
