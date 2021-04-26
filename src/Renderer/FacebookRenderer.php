@@ -18,7 +18,9 @@ class FacebookRenderer extends AbstractRenderer
             return htmlspecialchars(strip_tags(implode(' ', $value)));
         });
         $this->setPreprocessor('og:url', function ($value) {
-            return htmlspecialchars(strip_tags(implode($value)));
+            return array_map(function ($val) {
+                return htmlspecialchars(strip_tags($val));
+            }, $value);
         });
     }
 }

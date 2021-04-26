@@ -29,13 +29,19 @@ class DefaultRenderer extends AbstractRenderer
             return htmlspecialchars(strip_tags(implode(', ', array_unique($value))));
         });
         $this->setPreprocessor('canonical', function ($value) {
-            return htmlspecialchars(strip_tags(implode($value)));
+            return array_map(function ($val) {
+                return htmlspecialchars(strip_tags($val));
+            }, $value);
         });
         $this->setPreprocessor('next', function ($value) {
-            return htmlspecialchars(strip_tags(implode($value)));
+            return array_map(function ($val) {
+                return htmlspecialchars(strip_tags($val));
+            }, $value);
         });
         $this->setPreprocessor('prev', function ($value) {
-            return htmlspecialchars(strip_tags(implode($value)));
+            return array_map(function ($val) {
+                return htmlspecialchars(strip_tags($val));
+            }, $value);
         });
     }
 }
