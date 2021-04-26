@@ -16,5 +16,8 @@ class TwitterRenderer extends AbstractRenderer
         $this->setPreprocessor('twitter:description', function ($value) {
             return htmlspecialchars(strip_tags(implode(' ', $value)));
         });
+        $this->setPreprocessor('twitter:url', function ($value) {
+            return htmlspecialchars(strip_tags(implode($value)));
+        });
     }
 }

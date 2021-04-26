@@ -17,5 +17,8 @@ class FacebookRenderer extends AbstractRenderer
         $this->setPreprocessor('og:description', function ($value) {
             return htmlspecialchars(strip_tags(implode(' ', $value)));
         });
+        $this->setPreprocessor('og:url', function ($value) {
+            return htmlspecialchars(strip_tags(implode($value)));
+        });
     }
 }

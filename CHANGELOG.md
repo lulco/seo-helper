@@ -2,6 +2,9 @@
 
 ### [Unreleased][unreleased]
 
+#### Fixed
+- htmlspecialchars and strip_tags for urls (canonical, prev, next, og:url, twitter:url)
+
 ### [0.3.0] - 2019-11-18
 #### Added
 - Added missing magic reset* methods

@@ -28,5 +28,14 @@ class DefaultRenderer extends AbstractRenderer
         $this->setPreprocessor('keywords', function ($value) {
             return htmlspecialchars(strip_tags(implode(', ', array_unique($value))));
         });
+        $this->setPreprocessor('canonical', function ($value) {
+            return htmlspecialchars(strip_tags(implode($value)));
+        });
+        $this->setPreprocessor('next', function ($value) {
+            return htmlspecialchars(strip_tags(implode($value)));
+        });
+        $this->setPreprocessor('prev', function ($value) {
+            return htmlspecialchars(strip_tags(implode($value)));
+        });
     }
 }
