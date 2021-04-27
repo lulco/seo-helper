@@ -7,14 +7,14 @@ use Closure;
 abstract class AbstractRenderer implements RendererInterface
 {
     protected $types = [];
-    
+
     protected $preprocessors = [];
-    
+
     final public function init()
     {
         $this->initPreprocessors();
     }
-    
+
     /**
      * @return array
      */
@@ -22,7 +22,7 @@ abstract class AbstractRenderer implements RendererInterface
     {
         return array_keys($this->types);
     }
-    
+
     /**
      * @param string $type
      * @param string $key
@@ -45,7 +45,7 @@ abstract class AbstractRenderer implements RendererInterface
         }
         return $items;
     }
-    
+
     /**
      * @param string $type
      * @param Closure $closure function with one argument: $value
@@ -56,15 +56,13 @@ abstract class AbstractRenderer implements RendererInterface
         $this->preprocessors[$type] = $closure;
         return $this;
     }
-    
+
     protected function getPattern($type)
     {
         return isset($this->types[$type]) ? $this->types[$type] : null;
     }
-    
-    abstract protected function initPreprocessors();
-    
-    private function preprocessValue($key, $value)
+
+    protected function preprocessValue($key, $value)
     {
         $preprocessor = isset($this->preprocessors[$key]) ? $this->preprocessors[$key] : null;
         if (!$preprocessor) {
@@ -72,4 +70,6 @@ abstract class AbstractRenderer implements RendererInterface
         }
         return $preprocessor($value);
     }
+
+    abstract protected function initPreprocessors();
 }

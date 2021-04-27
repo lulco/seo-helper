@@ -19,6 +19,11 @@ class DefaultRenderer extends AbstractRenderer
 
     protected function initPreprocessors()
     {
+        $this->setPreprocessor('default', function ($value) {
+            return array_map(function ($val) {
+                return htmlspecialchars(strip_tags($val));
+            }, $value);
+        });
         $this->setPreprocessor('title', function ($value) {
             return strip_tags(implode(' | ', array_reverse($value)));
         });
@@ -43,5 +48,11 @@ class DefaultRenderer extends AbstractRenderer
                 return htmlspecialchars(strip_tags($val));
             }, $value);
         });
+    }
+
+    protected function preprocessValue($key, $value)
+    {
+        $preprocessor = isset($this->preprocessors[$key]) ? $this->preprocessors[$key] : $this->preprocessors['default'];
+        return $preprocessor($value);
     }
 }
