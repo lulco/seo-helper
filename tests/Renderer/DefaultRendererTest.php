@@ -18,7 +18,7 @@ class DefaultRendererTest extends PHPUnit_Framework_TestCase
     {
         $renderer = new DefaultRenderer();
         $renderer->init();
-        $this->assertEquals('<meta name="some-meta-name" content="some-meta-value">', $renderer->render('something', 'some-meta-name', 'some-meta-value'));
+        $this->assertEquals(['<meta name="some-meta-name" content="some-meta-value">'], $renderer->render('something', 'some-meta-name', 'some-meta-value'));
     }
 
     public function testTitle()
@@ -49,7 +49,7 @@ class DefaultRendererTest extends PHPUnit_Framework_TestCase
         $renderer->init();
         $this->assertEquals(['<link rel="prev" href="prev-url">'], $renderer->render('prev', 'prev', ['prev-url']));
     }
-    
+
     public function testDescription()
     {
         $renderer = new DefaultRenderer();

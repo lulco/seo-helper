@@ -22,7 +22,7 @@ class DefaultRenderer extends AbstractRenderer
         $this->setPreprocessor('default', function ($value) {
             return array_map(function ($val) {
                 return htmlspecialchars(strip_tags($val));
-            }, $value);
+            }, (array)$value);
         });
         $this->setPreprocessor('title', function ($value) {
             return strip_tags(implode(' | ', array_reverse($value)));
