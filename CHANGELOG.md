@@ -2,6 +2,9 @@
 
 ### [Unreleased][unreleased]
 
+#### Fixed
+- Setup for default preprocessor and use it for unknown types
+
 ### [0.3.1] - 2021-04-26
 #### Fixed
 - htmlspecialchars and strip_tags for urls (canonical, prev, next, og:url, twitter:url)
