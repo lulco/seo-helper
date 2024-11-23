@@ -61,6 +61,12 @@ class BaseMetaData
         return $this;
     }
 
+    final public function resetAll()
+    {
+        $this->data = [];
+        $this->aliases = [];
+    }
+
     /**
      * @param string $key
      * @param string|array $value
