@@ -2,6 +2,9 @@
 
 ### [Unreleased][unreleased]
 
+#### Added
+- Method to resetAll data and aliases in BaseMetaData
+
 ### [1.0.0] - 2021-08-09
 #### Changed
 - Upgrade to nette 3.0
