@@ -15,6 +15,7 @@ namespace SeoHelper\MetaData;
  * @method BaseMetaData setOgImage(string $image)
  * @method BaseMetaData resetOgImage(string|null $image = null)
  * @method BaseMetaData setFbAdmins(string $fbAdmins)
+ * @method BaseMetaData setFbPages(string $fbPages)
  */
 trait Facebook
 {
@@ -37,5 +38,15 @@ trait Facebook
     public function getOgSiteName()
     {
         return $this->get('og:site_name');
+    }
+
+    public function setFbAppId($appId)
+    {
+        return $this->set('fb:app_id', $appId);
+    }
+
+    public function getFbAppId()
+    {
+        return $this->get('fb:app_id');
     }
 }

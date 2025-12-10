@@ -1,6 +1,8 @@
 ## Change Log
 
 ### [Unreleased][unreleased]
+### Added
+- Facebook meta tags fb:app_id and fb:pages
 
 ### [1.1.0] - 2024-11-24
 #### Added
