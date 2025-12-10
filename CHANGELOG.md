@@ -1,6 +1,8 @@
 ## Change Log
 
 ### [Unreleased][unreleased]
+
+### [1.2.0] - 2025-12-02
 ### Added
 - Facebook meta tags fb:app_id and fb:pages
 
@@ -52,7 +54,8 @@
 - Renderers
 - Nette component
 
-[unreleased]: https://github.com/lulco/seo-helper/compare/1.1.0...HEAD
+[unreleased]: https://github.com/lulco/seo-helper/compare/1.2.0...HEAD
+[1.2.0]: https://github.com/lulco/seo-helper/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/lulco/seo-helper/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/lulco/seo-helper/compare/0.3.2...1.0.0
 [0.3.2]: https://github.com/lulco/seo-helper/compare/0.3.1...0.3.2
