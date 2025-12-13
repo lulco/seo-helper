@@ -71,7 +71,6 @@ final class MetaDataTest extends TestCase
         $this->assertNull($metaData->getTitle());
     }
 
-
     public function testNoAlias(): void
     {
         $metaData = new MetaData();

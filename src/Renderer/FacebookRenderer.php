@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SeoHelper\Renderer;
 
 class FacebookRenderer extends AbstractRenderer
