@@ -4,12 +4,12 @@ namespace SeoHelper\Renderer;
 
 class FacebookRenderer extends AbstractRenderer
 {
-    protected $types = [
+    protected array $types = [
         'og' => '<meta property="{$key}" content="{$value}">',
         'fb' => '<meta property="{$key}" content="{$value}">',
     ];
 
-    protected function initPreprocessors()
+    protected function initPreprocessors(): void
     {
         $this->setPreprocessor('og:title', function ($value) {
             return htmlspecialchars(strip_tags(implode(' | ', array_reverse($value))));

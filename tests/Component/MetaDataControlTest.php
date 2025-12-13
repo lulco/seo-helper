@@ -1,17 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SeoHelper\Tests\Component;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use SeoHelper\Bridge\Nette\Components\MetaData\MetaDataControl;
 use SeoHelper\Generator\BaseGenerator;
 use SeoHelper\Generator\DefaultGenerator;
 use SeoHelper\MetaData\MetaData;
 use SeoHelper\Renderer\DefaultRenderer;
 
-class MetaDataControlTest extends PHPUnit_Framework_TestCase
+final class MetaDataControlTest extends TestCase
 {
-    public function testComponentWithDefaultGenerator()
+    public function testComponentWithDefaultGenerator(): void
     {
         $metaData = new MetaData();
         $metaData->addTitle('First title');
@@ -31,7 +33,7 @@ class MetaDataControlTest extends PHPUnit_Framework_TestCase
         $this->assertEquals("<title>Second title | First title</title>\n<meta name=\"description\" content=\"My description\">\n<meta property=\"og:image\" content=\"og-image-1\">\n<meta property=\"og:image\" content=\"og-image-2\">", $result);
     }
 
-    public function testComponentWithEmptyBaseGenerator()
+    public function testComponentWithEmptyBaseGenerator(): void
     {
         $metaData = new MetaData();
         $metaData->addTitle('First title');
@@ -51,7 +53,7 @@ class MetaDataControlTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('', $result);
     }
 
-    public function testComponentWithBaseGenerator()
+    public function testComponentWithBaseGenerator(): void
     {
         $metaData = new MetaData();
         $metaData->addTitle('First title');

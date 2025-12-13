@@ -1,64 +1,88 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SeoHelper\Tests\MetaData;
 
 use InvalidArgumentException;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use SeoHelper\MetaData\BaseMetaData;
 use SeoHelper\MetaData\MetaData;
 
-class MetaDataTest extends PHPUnit_Framework_TestCase
+final class MetaDataTest extends TestCase
 {
-    public function testSimpleSetGet()
+    public function testSimpleSetGet(): void
     {
         $metaData = new MetaData();
         $this->assertTrue(is_array($metaData->get()));
-        $this->assertTrue(empty($metaData->get()));
-        
-        $this->assertFalse($metaData->getCanonical());
+        $this->assertEmpty($metaData->get());
+
+        $this->assertNull($metaData->getCanonical());
         $this->assertInstanceOf(BaseMetaData::class, $metaData->setCanonical('canonical-url'));
         $this->assertEquals(['canonical-url'], $metaData->getCanonical());
     }
-    
-    public function testAdd()
+
+    public function testAdd(): void
     {
         $metaData = new MetaData();
-        $this->assertTrue(empty($metaData->get()));
-        
-        $this->assertFalse($metaData->getTitle());
+        $this->assertEmpty($metaData->get());
+
+        $this->assertNull($metaData->getTitle());
         $this->assertInstanceOf(BaseMetaData::class, $metaData->addTitle('First title'));
         $this->assertInstanceOf(BaseMetaData::class, $metaData->addTitle('Second title'));
         $this->assertEquals(['First title', 'Second title'], $metaData->getTitle());
     }
-    
-    public function testReset()
+
+    public function testReset(): void
     {
         $metaData = new MetaData();
         $this->assertTrue(is_array($metaData->get()));
-        $this->assertTrue(empty($metaData->get()));
-        
-        $this->assertFalse($metaData->getCanonical());
+        $this->assertEmpty($metaData->get());
+
+        $this->assertNull($metaData->getCanonical());
         $this->assertInstanceOf(BaseMetaData::class, $metaData->setCanonical('canonical-url'));
         $this->assertEquals(['canonical-url'], $metaData->getCanonical());
-        
+
         $this->assertInstanceOf(BaseMetaData::class, $metaData->resetCanonical('new-canonical-url'));
         $this->assertEquals(['new-canonical-url'], $metaData->getCanonical());
-        
+
         $this->assertInstanceOf(BaseMetaData::class, $metaData->resetCanonical());
-        $this->assertFalse($metaData->getCanonical());
+        $this->assertNull($metaData->getCanonical());
     }
-    
-    public function testNoAlias()
+
+    public function testResetAll(): void
+    {
+        $metaData = new MetaData();
+        $this->assertTrue(is_array($metaData->get()));
+        $this->assertEmpty($metaData->get());
+
+        $this->assertInstanceOf(BaseMetaData::class, $metaData->setTitle('title'));
+        $this->assertEquals(['title'], $metaData->getTitle());
+
+        $this->assertInstanceOf(BaseMetaData::class, $metaData->setCanonical('canonical-url'));
+        $this->assertEquals(['canonical-url'], $metaData->getCanonical());
+
+        $this->assertNotEmpty($metaData->get());
+
+        $metaData->resetAll();
+
+        $this->assertEmpty($metaData->get());
+        $this->assertNull($metaData->getCanonical());
+        $this->assertNull($metaData->getTitle());
+    }
+
+
+    public function testNoAlias(): void
     {
         $metaData = new MetaData();
         $this->assertInstanceOf(BaseMetaData::class, $metaData->addTitle('First title'));
         $this->assertInstanceOf(BaseMetaData::class, $metaData->addTitle('Second title'));
         $this->assertEquals(['First title', 'Second title'], $metaData->getTitle());
-        $this->assertFalse($metaData->getOgTitle());
-        $this->assertFalse($metaData->getTwitterTitle());
+        $this->assertNull($metaData->getOgTitle());
+        $this->assertNull($metaData->getTwitterTitle());
     }
-    
-    public function testAlias()
+
+    public function testAlias(): void
     {
         $metaData = new MetaData();
         $this->assertInstanceOf(BaseMetaData::class, $metaData->alias('title', 'og:title'));
@@ -69,11 +93,12 @@ class MetaDataTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(['First title', 'Second title'], $metaData->getOgTitle());
         $this->assertEquals(['First title', 'Second title'], $metaData->getTwitterTitle());
     }
-    
-    public function testUnknownMethod()
+
+    public function testUnknownMethod(): void
     {
         $metaData = new MetaData();
-        $this->setExpectedExceptionRegExp(InvalidArgumentException::class, "/Method 'unknown' not found/");
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessageMatches("/Method 'unknown' not found/");
         $metaData->unknown('asdf');
     }
 }

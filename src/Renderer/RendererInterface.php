@@ -6,20 +6,16 @@ interface RendererInterface
 {
     /**
      * initialize renderer
-     * @return RendererInterface
      */
-    public function init();
-    
+    public function init(): void;
+
     /**
      * @return array types which will be rendered with this renderer
      */
-    public function getTypes();
+    public function getTypes(): array;
 
     /**
-     * @param string $type
-     * @param string $key
-     * @param mixed $value
-     * @return string|array|boolean rendered item(s) or false on failure
+     * @return string|array|null rendered item(s) or null on failure
      */
-    public function render($type, $key, $value);
+    public function render(string $type, string $key, mixed $value): string|array|null;
 }

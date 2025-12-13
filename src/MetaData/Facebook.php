@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SeoHelper\MetaData;
 
 /**
@@ -19,33 +21,26 @@ namespace SeoHelper\MetaData;
  */
 trait Facebook
 {
-    /**
-     * @param string $key
-     * @param string|array $value
-     */
-    abstract public function set($key, $value);
+    abstract public function set(string $key, string|array $value): static;
 
-    /**
-     * @param string|null $key
-     */
-    abstract public function get($key = null);
+    abstract public function get(?string $key = null): ?array;
 
-    public function setOgSiteName($siteName)
+    public function setOgSiteName(string $siteName): static
     {
         return $this->set('og:site_name', $siteName);
     }
 
-    public function getOgSiteName()
+    public function getOgSiteName(): ?array
     {
         return $this->get('og:site_name');
     }
 
-    public function setFbAppId($appId)
+    public function setFbAppId($appId): static
     {
         return $this->set('fb:app_id', $appId);
     }
 
-    public function getFbAppId()
+    public function getFbAppId(): ?array
     {
         return $this->get('fb:app_id');
     }
