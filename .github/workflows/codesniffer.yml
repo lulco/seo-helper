@@ -30,7 +30,7 @@ jobs:
         run: composer update --no-progress --no-interaction
 
       - name: Install PHP code sniffer as dev dependency
-        run: composer require squizlabs/php_codesniffer --dev
+        run: composer require efabrica/coding-standard --dev
 
       - name: Code sniffer
-        run: vendor/bin/phpcs src tests --standard=PSR2 -n
+        run: vendor/bin/phpcs src tests --standard="vendor/efabrica/coding-standard/eFabrica" -n
