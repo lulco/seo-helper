@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SeoHelper\Bridge\Nette\Components\MetaData;
 
 use Nette\Application\UI\Control;
@@ -8,17 +10,13 @@ use SeoHelper\MetaData\BaseMetaData;
 
 class MetaDataControl extends Control
 {
-    private $metaData;
-
-    private $generator;
-
-    public function __construct(BaseMetaData $metaData, GeneratorInterface $generator)
-    {
-        $this->metaData = $metaData;
-        $this->generator = $generator;
+    public function __construct(
+        private BaseMetaData $metaData,
+        private GeneratorInterface $generator
+    ) {
     }
 
-    public function render()
+    public function render(): void
     {
         echo $this->generator->render($this->metaData);
     }

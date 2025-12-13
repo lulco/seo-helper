@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SeoHelper\Generator;
 
 use SeoHelper\MetaData\BaseMetaData;
@@ -15,8 +17,8 @@ class DefaultGenerator extends BaseGenerator
         $this->addRenderer(new FacebookRenderer());
         $this->addRenderer(new TwitterRenderer());
     }
-    
-    protected function sortMetaData($metaData)
+
+    protected function sortMetaData(array $metaData): array
     {
         ksort($metaData);
         $metaDataToPrepend = ['title', 'description', 'keywords', 'robots'];

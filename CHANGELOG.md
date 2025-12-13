@@ -2,6 +2,17 @@
 
 ### [Unreleased][unreleased]
 
+### Changed
+- Autoload to psr-4
+- Declare strict types 
+- Return type hint RendererInterface::render() to string|array|null
+
+### Added
+- Typehints for all methods
+
+### Removed
+- Support for php 5.x and 7.x
+
 ### [1.2.0] - 2025-12-02
 ### Added
 - Facebook meta tags fb:app_id and fb:pages

@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SeoHelper\Renderer;
 
 class DefaultRenderer extends AbstractRenderer
 {
-    protected $types = [
+    protected array $types = [
         'default' => '<meta name="{$key}" content="{$value}">',
         'title' => '<title>{$value}</title>',
         'canonical' => '<link rel="canonical" href="{$value}">',
@@ -12,12 +14,12 @@ class DefaultRenderer extends AbstractRenderer
         'prev' => '<link rel="prev" href="{$value}">',
     ];
 
-    protected function getPattern($type)
+    protected function getPattern($type): ?string
     {
         return parent::getPattern($type) ?: $this->types['default'];
     }
 
-    protected function initPreprocessors()
+    protected function initPreprocessors(): void
     {
         $this->setPreprocessor('default', function ($value) {
             return array_map(function ($val) {
@@ -52,7 +54,7 @@ class DefaultRenderer extends AbstractRenderer
 
     protected function preprocessValue($key, $value)
     {
-        $preprocessor = isset($this->preprocessors[$key]) ? $this->preprocessors[$key] : $this->preprocessors['default'];
+        $preprocessor = $this->preprocessors[$key] ?? $this->preprocessors['default'];
         return $preprocessor($value);
     }
 }

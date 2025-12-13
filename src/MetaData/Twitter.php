@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SeoHelper\MetaData;
 
 /**
@@ -17,14 +19,7 @@ namespace SeoHelper\MetaData;
  */
 trait Twitter
 {
-    /**
-     * @param string $key
-     * @param string|array $value
-     */
-    abstract public function set($key, $value);
+    abstract public function set(string $key, string|array $value): static;
 
-    /**
-     * @param string|null $key
-     */
-    abstract public function get($key = null);
+    abstract public function get(?string $key = null): ?array;
 }

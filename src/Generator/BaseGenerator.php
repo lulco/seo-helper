@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SeoHelper\Generator;
 
 use SeoHelper\MetaData\BaseMetaData;
@@ -7,14 +9,15 @@ use SeoHelper\Renderer\RendererInterface;
 
 class BaseGenerator implements GeneratorInterface
 {
-    private $renderers = [];
+    /** @var RendererInterface[] */
+    private array $renderers = [];
 
-    public function render(BaseMetaData $metaData)
+    public function render(BaseMetaData $metaData): string
     {
         return implode("\n", $this->prepare($metaData));
     }
 
-    private function prepare(BaseMetaData $metaData)
+    private function prepare(BaseMetaData $metaData): array
     {
         $items = [];
         foreach ($this->sortMetaData($metaData->get()) as $key => $value) {
@@ -37,7 +40,7 @@ class BaseGenerator implements GeneratorInterface
         return $items;
     }
 
-    public function addRenderer(RendererInterface $renderer)
+    public function addRenderer(RendererInterface $renderer): static
     {
         $renderer->init();
         foreach ($renderer->getTypes() as $type) {
@@ -46,14 +49,14 @@ class BaseGenerator implements GeneratorInterface
         return $this;
     }
 
-    protected function sortMetaData($metaData)
+    protected function sortMetaData(array $metaData): array
     {
         return $metaData;
     }
 
-    private function findRenderer($type)
+    private function findRenderer($type): ?RendererInterface
     {
-        $renderer = isset($this->renderers[$type]) ? $this->renderers[$type] : null;
-        return $renderer ?: (isset($this->renderers['default']) ? $this->renderers['default'] : null);
+        $renderer = $this->renderers[$type] ?? null;
+        return $renderer ?: ($this->renderers['default'] ?? null);
     }
 }

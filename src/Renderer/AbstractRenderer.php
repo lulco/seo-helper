@@ -1,39 +1,32 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SeoHelper\Renderer;
 
 use Closure;
 
 abstract class AbstractRenderer implements RendererInterface
 {
-    protected $types = [];
+    protected array $types = [];
 
-    protected $preprocessors = [];
+    protected array $preprocessors = [];
 
-    final public function init()
+    final public function init(): void
     {
         $this->initPreprocessors();
     }
 
-    /**
-     * @return array
-     */
-    public function getTypes()
+    public function getTypes(): array
     {
         return array_keys($this->types);
     }
 
-    /**
-     * @param string $type
-     * @param string $key
-     * @param mixed $value
-     * @return string|array|boolean rendered item(s) or false on failure
-     */
-    public function render($type, $key, $value)
+    public function render(string $type, string $key, mixed $value): string|array|null
     {
         $pattern = $this->getPattern($type);
         if (!$pattern) {
-            return false;
+            return null;
         }
         $finalValue = $this->preprocessValue($key, $value);
         if (!is_array($finalValue)) {
@@ -46,30 +39,25 @@ abstract class AbstractRenderer implements RendererInterface
         return $items;
     }
 
-    /**
-     * @param string $type
-     * @param Closure $closure function with one argument: $value
-     * @return AbstractRenderer
-     */
-    public function setPreprocessor($type, Closure $closure)
+    public function setPreprocessor(string $type, Closure $closure): static
     {
         $this->preprocessors[$type] = $closure;
         return $this;
     }
 
-    protected function getPattern($type)
+    protected function getPattern($type): ?string
     {
-        return isset($this->types[$type]) ? $this->types[$type] : null;
+        return $this->types[$type] ?? null;
     }
 
     protected function preprocessValue($key, $value)
     {
-        $preprocessor = isset($this->preprocessors[$key]) ? $this->preprocessors[$key] : null;
+        $preprocessor = $this->preprocessors[$key] ?? null;
         if (!$preprocessor) {
             return $value;
         }
         return $preprocessor($value);
     }
 
-    abstract protected function initPreprocessors();
+    abstract protected function initPreprocessors(): void;
 }

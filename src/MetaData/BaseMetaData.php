@@ -1,39 +1,36 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SeoHelper\MetaData;
 
 use InvalidArgumentException;
 
 class BaseMetaData
 {
-    private $data = [];
+    private array $data = [];
 
-    private $aliases = [];
+    private array $aliases = [];
 
     public function __call($name, $arguments)
     {
-        if (substr($name, 0, 3) === 'get') {
+        if (str_starts_with($name, 'get')) {
             $propertyName = $this->createPropertyName(str_replace('get', '', $name));
             return $this->get($propertyName);
-        } elseif (substr($name, 0, 3) == 'set') {
+        } elseif (str_starts_with($name, 'set')) {
             $propertyName = $this->createPropertyName(str_replace('set', '', $name));
             return $this->set($propertyName, $arguments[0]);
-        } elseif (substr($name, 0, 3) == 'add') {
+        } elseif (str_starts_with($name, 'add')) {
             $propertyName = $this->createPropertyName(str_replace('add', '', $name));
             return $this->add($propertyName, $arguments[0]);
-        } elseif (substr($name, 0, 5) == 'reset') {
+        } elseif (str_starts_with($name, 'reset')) {
             $propertyName = $this->createPropertyName(str_replace('reset', '', $name));
-            return $this->reset($propertyName, isset($arguments[0]) ? $arguments[0] : null);
+            return $this->reset($propertyName, $arguments[0] ?? null);
         }
         throw new InvalidArgumentException("Method '$name' not found");
     }
 
-    /**
-     * @param string $key
-     * @param string|array $value
-     * @return BaseMetaData
-     */
-    final public function set($key, $value)
+    final public function set(string $key, string|array $value): static
     {
         if (!is_array($value)) {
             $value = [$value];
@@ -44,12 +41,7 @@ class BaseMetaData
         return $this;
     }
 
-    /**
-     * @param string $key
-     * @param string|array|null $newValue
-     * @return BaseMetaData
-     */
-    final public function reset($key, $newValue = null)
+    final public function reset(string $key, string|array|null $newValue = null): static
     {
         if ($newValue !== null) {
             return $this->set($key, $newValue);
@@ -61,18 +53,13 @@ class BaseMetaData
         return $this;
     }
 
-    final public function resetAll()
+    final public function resetAll(): void
     {
         $this->data = [];
         $this->aliases = [];
     }
 
-    /**
-     * @param string $key
-     * @param string|array $value
-     * @return BaseMetaData
-     */
-    final public function add($key, $value)
+    final public function add(string $key, string|array $value): static
     {
         if (!is_array($value)) {
             $value = [$value];
@@ -87,24 +74,21 @@ class BaseMetaData
     }
 
     /**
-     * @param string $key
-     * @return array|false all data if $key is null or data for $key as array or false if $key is not set in data
+     * @return array|null all data if $key is null or data for $key as array or null if $key is not set in data
      */
-    final public function get($key = null)
+    final public function get(?string $key = null): ?array
     {
         if ($key === null) {
             return $this->data;
         }
-        return isset($this->data[$key]) ? $this->data[$key] : false;
+        return $this->data[$key] ?? null;
     }
 
     /**
      * alias(es) for type
      * for example title => [og:title, twitter:title], in this case there is no need to set all types, because they will be set automatically with main type
-     * @param string $type
-     * @param string|array $alias
      */
-    final public function alias($type, $alias)
+    final public function alias(string $type, string|array $alias): static
     {
         if (!isset($this->aliases[$type])) {
             $this->aliases[$type] = [];
@@ -118,7 +102,7 @@ class BaseMetaData
         return $this;
     }
 
-    private function createPropertyName($camelCase)
+    private function createPropertyName(string $camelCase): string
     {
         $length = strlen($camelCase);
         $lowerCamelCase = lcfirst($camelCase);
@@ -132,9 +116,9 @@ class BaseMetaData
         return $propertyName;
     }
 
-    private function findAliases($key)
+    private function findAliases(string $key): array
     {
-        $aliases = isset($this->aliases[$key]) ? $this->aliases[$key] : [];
+        $aliases = $this->aliases[$key] ?? [];
         return array_merge([$key], $aliases);
     }
 }

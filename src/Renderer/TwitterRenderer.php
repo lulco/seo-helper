@@ -4,11 +4,11 @@ namespace SeoHelper\Renderer;
 
 class TwitterRenderer extends AbstractRenderer
 {
-    protected $types = [
+    protected array $types = [
         'twitter' => '<meta property="{$key}" content="{$value}">',
     ];
 
-    protected function initPreprocessors()
+    protected function initPreprocessors(): void
     {
         $this->setPreprocessor('twitter:title', function ($value) {
             return htmlspecialchars(strip_tags(implode(' | ', array_reverse($value))));
