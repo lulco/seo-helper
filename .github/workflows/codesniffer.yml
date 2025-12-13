@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: [ '8.0', '8.1', '8.2', '8.3', '8.4', '8.5' ]
+        php: [ '8.1', '8.2', '8.3', '8.4', '8.5' ]
 
     name: PHP ${{ matrix.php }} code sniffer
 
@@ -30,7 +30,9 @@ jobs:
         run: composer update --no-progress --no-interaction
 
       - name: Install PHP code sniffer as dev dependency
-        run: composer require efabrica/coding-standard --dev
+        run:
+          - composer config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer
+          - composer require efabrica/coding-standard --dev
 
       - name: Code sniffer
         run: vendor/bin/phpcs src tests --standard="vendor/efabrica/coding-standard/eFabrica" -n
