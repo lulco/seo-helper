@@ -8,6 +8,7 @@ use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use SeoHelper\MetaData\BaseMetaData;
 use SeoHelper\MetaData\MetaData;
+use function is_array;
 
 final class MetaDataTest extends TestCase
 {
@@ -70,7 +71,6 @@ final class MetaDataTest extends TestCase
         $this->assertNull($metaData->getCanonical());
         $this->assertNull($metaData->getTitle());
     }
-
 
     public function testNoAlias(): void
     {

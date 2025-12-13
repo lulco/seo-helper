@@ -5,6 +5,14 @@ declare(strict_types=1);
 namespace SeoHelper\MetaData;
 
 use InvalidArgumentException;
+use function array_merge;
+use function is_array;
+use function lcfirst;
+use function str_replace;
+use function str_starts_with;
+use function strlen;
+use function strtolower;
+use function strtoupper;
 
 class BaseMetaData
 {

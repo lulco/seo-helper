@@ -4,6 +4,13 @@ declare(strict_types=1);
 
 namespace SeoHelper\Renderer;
 
+use function array_map;
+use function array_reverse;
+use function array_unique;
+use function htmlspecialchars;
+use function implode;
+use function strip_tags;
+
 class DefaultRenderer extends AbstractRenderer
 {
     protected array $types = [

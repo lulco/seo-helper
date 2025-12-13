@@ -6,6 +6,7 @@ namespace SeoHelper\Tests\Renderer;
 
 use PHPUnit\Framework\TestCase;
 use SeoHelper\Renderer\DefaultRenderer;
+use function is_array;
 
 final class DefaultRendererTest extends TestCase
 {

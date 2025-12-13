@@ -7,6 +7,7 @@ namespace SeoHelper\Tests\MetaData;
 use PHPUnit\Framework\TestCase;
 use SeoHelper\MetaData\BaseMetaData;
 use SeoHelper\MetaData\MetaData;
+use function is_array;
 
 final class FacebookMetaDataTest extends TestCase
 {

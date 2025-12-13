@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace SeoHelper\Generator;
 
-use SeoHelper\MetaData\BaseMetaData;
 use SeoHelper\Renderer\DefaultRenderer;
 use SeoHelper\Renderer\FacebookRenderer;
 use SeoHelper\Renderer\TwitterRenderer;
+use function array_merge;
+use function ksort;
 
 class DefaultGenerator extends BaseGenerator
 {
-    public function __construct(BaseMetaData $metaData)
+    public function __construct()
     {
         $this->addRenderer(new DefaultRenderer());
         $this->addRenderer(new FacebookRenderer());

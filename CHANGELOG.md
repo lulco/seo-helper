@@ -11,7 +11,7 @@
 - Typehints for all methods
 
 ### Removed
-- Support for php 5.x and 7.x
+- Support for php 5.x, 7.x, 8.0
 
 ### [1.2.0] - 2025-12-02
 ### Added
