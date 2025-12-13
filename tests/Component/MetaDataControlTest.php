@@ -10,6 +10,9 @@ use SeoHelper\Generator\BaseGenerator;
 use SeoHelper\Generator\DefaultGenerator;
 use SeoHelper\MetaData\MetaData;
 use SeoHelper\Renderer\DefaultRenderer;
+use function ob_end_clean;
+use function ob_get_contents;
+use function ob_start;
 
 final class MetaDataControlTest extends TestCase
 {

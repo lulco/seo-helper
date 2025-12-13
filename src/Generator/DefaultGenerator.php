@@ -7,6 +7,8 @@ namespace SeoHelper\Generator;
 use SeoHelper\Renderer\DefaultRenderer;
 use SeoHelper\Renderer\FacebookRenderer;
 use SeoHelper\Renderer\TwitterRenderer;
+use function array_merge;
+use function ksort;
 
 class DefaultGenerator extends BaseGenerator
 {

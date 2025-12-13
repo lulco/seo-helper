@@ -6,6 +6,7 @@ namespace SeoHelper\Tests\Renderer;
 
 use PHPUnit\Framework\TestCase;
 use SeoHelper\Renderer\FacebookRenderer;
+use function is_array;
 
 final class FacebookRendererTest extends TestCase
 {

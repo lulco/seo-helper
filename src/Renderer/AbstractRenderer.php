@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace SeoHelper\Renderer;
 
 use Closure;
+use function array_keys;
+use function is_array;
+use function str_replace;
 
 abstract class AbstractRenderer implements RendererInterface
 {

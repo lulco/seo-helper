@@ -6,6 +6,7 @@ namespace SeoHelper\Tests\Renderer;
 
 use PHPUnit\Framework\TestCase;
 use SeoHelper\Renderer\TwitterRenderer;
+use function is_array;
 
 final class TwitterRendererTest extends TestCase
 {

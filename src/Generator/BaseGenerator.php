@@ -6,6 +6,11 @@ namespace SeoHelper\Generator;
 
 use SeoHelper\MetaData\BaseMetaData;
 use SeoHelper\Renderer\RendererInterface;
+use function array_merge;
+use function current;
+use function explode;
+use function implode;
+use function is_array;
 
 class BaseGenerator implements GeneratorInterface
 {
