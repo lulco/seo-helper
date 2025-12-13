@@ -33,4 +33,4 @@ jobs:
         run: echo "{}" >> composer.json && composer config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true && composer require efabrica/coding-standard
 
       - name: Code sniffer
-        run: vendor/bin/phpcs src tests --standard="vendor/efabrica/coding-standard/eFabrica" -n # TODO use SemiStrict standard
+        run: vendor/bin/phpcs src tests --standard="vendor/efabrica/coding-standard/eFabricaDeclareStrictAndUse" -n
