@@ -15,7 +15,7 @@
 	},
 	"require-dev": {
 		"nette/application": "^3.0",
-		"phpunit/phpunit": "^9.5 | ^10.0 | ^11.5 | ^12.5"
+		"phpunit/phpunit": "^9.5 | ^10.0 | ^11.5 | ^12.5 | ^13.1"
 	},
 	"suggest": {
 		"nette/application": "Allows to use SeoHelper\\Bridge\\Nette\\Components\\MetaData\\MetaDataControl"

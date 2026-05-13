@@ -28,24 +28,24 @@ final class TwitterRendererTest extends TestCase
     {
         $renderer = new TwitterRenderer();
         $renderer->init();
-        $this->assertEquals('<meta property="twitter:title" content="Second title | First title">', $renderer->render('twitter', 'twitter:title', ['First title', 'Second <strong>title</strong>']));
-        $this->assertEquals('<meta property="twitter:title" content="&quot;Second&quot; title | &#039;First&#039; title">', $renderer->render('twitter', 'twitter:title', ['\'First\' title', '"Second" <strong>title</strong>']));
-        $this->assertEquals('<meta property="twitter:title" content="&quot;Pán veľkomožný&quot; očakávam, že toto bude fungovať „bez problémov“">', $renderer->render('twitter', 'twitter:title', ['"Pán veľkomožný" <strong>očakávam</strong>, že toto bude fungovať „bez problémov“']));
+        $this->assertEquals('<meta name="twitter:title" content="Second title | First title">', $renderer->render('twitter', 'twitter:title', ['First title', 'Second <strong>title</strong>']));
+        $this->assertEquals('<meta name="twitter:title" content="&quot;Second&quot; title | &#039;First&#039; title">', $renderer->render('twitter', 'twitter:title', ['\'First\' title', '"Second" <strong>title</strong>']));
+        $this->assertEquals('<meta name="twitter:title" content="&quot;Pán veľkomožný&quot; očakávam, že toto bude fungovať „bez problémov“">', $renderer->render('twitter', 'twitter:title', ['"Pán veľkomožný" <strong>očakávam</strong>, že toto bude fungovať „bez problémov“']));
     }
 
     public function testDescription(): void
     {
         $renderer = new TwitterRenderer();
         $renderer->init();
-        $this->assertEquals('<meta property="twitter:description" content="First description Second description">', $renderer->render('twitter', 'twitter:description', ['First <strong>description</strong>', 'Second description']));
-        $this->assertEquals('<meta property="twitter:description" content="&#039;First&#039; description &quot;Second&quot; description">', $renderer->render('twitter', 'twitter:description', ['\'First\' <strong>description</strong>', '"Second" description']));
-        $this->assertEquals('<meta property="twitter:description" content="&quot;Pán veľkomožný&quot; očakávam, že toto bude fungovať „bez problémov“">', $renderer->render('twitter', 'twitter:description', ['"Pán veľkomožný" <strong>očakávam</strong>, že toto bude fungovať „bez problémov“']));
+        $this->assertEquals('<meta name="twitter:description" content="First description Second description">', $renderer->render('twitter', 'twitter:description', ['First <strong>description</strong>', 'Second description']));
+        $this->assertEquals('<meta name="twitter:description" content="&#039;First&#039; description &quot;Second&quot; description">', $renderer->render('twitter', 'twitter:description', ['\'First\' <strong>description</strong>', '"Second" description']));
+        $this->assertEquals('<meta name="twitter:description" content="&quot;Pán veľkomožný&quot; očakávam, že toto bude fungovať „bez problémov“">', $renderer->render('twitter', 'twitter:description', ['"Pán veľkomožný" <strong>očakávam</strong>, že toto bude fungovať „bez problémov“']));
     }
 
     public function testUrl(): void
     {
         $renderer = new TwitterRenderer();
         $renderer->init();
-        $this->assertEquals(['<meta property="twitter:url" content="twitter-url">'], $renderer->render('twitter', 'twitter:url', ['twitter-url']));
+        $this->assertEquals(['<meta name="twitter:url" content="twitter-url">'], $renderer->render('twitter', 'twitter:url', ['twitter-url']));
     }
 }
