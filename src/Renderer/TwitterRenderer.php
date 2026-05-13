@@ -5,7 +5,7 @@ namespace SeoHelper\Renderer;
 class TwitterRenderer extends AbstractRenderer
 {
     protected $types = [
-        'twitter' => '<meta property="{$key}" content="{$value}">',
+        'twitter' => '<meta name="{$key}" content="{$value}">',
     ];
 
     protected function initPreprocessors()

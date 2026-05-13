@@ -2,8 +2,11 @@
 
 ### [Unreleased][unreleased]
 
+#### Fixed
+- Twitter renderer pattern - use name instead of property
+
 ### [1.2.0] - 2025-12-02
-### Added
+#### Added
 - Facebook meta tags fb:app_id and fb:pages
 
 ### [1.1.0] - 2024-11-24
