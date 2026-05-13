@@ -2,6 +2,7 @@
 
 ## [Unreleased][unreleased]
 
+## [2.0.1] - 2026-05-13
 ### Fixed
 - Twitter renderer pattern - use name instead of property
 
@@ -69,7 +70,8 @@
 - Renderers
 - Nette component
 
-[unreleased]: https://github.com/lulco/seo-helper/compare/2.0.0...HEAD
+[unreleased]: https://github.com/lulco/seo-helper/compare/2.0.1...HEAD
+[2.0.1]: https://github.com/lulco/seo-helper/compare/2.0.0...2.0.1
 [2.0.0]: https://github.com/lulco/seo-helper/compare/1.2.0...2.0.0
 [1.2.0]: https://github.com/lulco/seo-helper/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/lulco/seo-helper/compare/1.0.0...1.1.0
