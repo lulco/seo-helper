@@ -13,7 +13,7 @@ use function strip_tags;
 class TwitterRenderer extends AbstractRenderer
 {
     protected array $types = [
-        'twitter' => '<meta property="{$key}" content="{$value}">',
+        'twitter' => '<meta name="{$key}" content="{$value}">',
     ];
 
     protected function initPreprocessors(): void

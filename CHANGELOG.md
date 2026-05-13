@@ -1,8 +1,11 @@
-## Change Log
+# Change Log
 
-### [Unreleased][unreleased]
+## [Unreleased][unreleased]
 
-### [2.0.0] - 2025-12-13
+### Fixed
+- Twitter renderer pattern - use name instead of property
+
+## [2.0.0] - 2025-12-13
 ### Changed
 - Autoload to psr-4
 - Declare strict types 
@@ -14,53 +17,53 @@
 ### Removed
 - Support for php 5.x, 7.x, 8.0
 
-### [1.2.0] - 2025-12-02
+## [1.2.0] - 2025-12-02
 ### Added
 - Facebook meta tags fb:app_id and fb:pages
 
-### [1.1.0] - 2024-11-24
-#### Added
+## [1.1.0] - 2024-11-24
+### Added
 - Method to resetAll data and aliases in BaseMetaData
 
-### [1.0.0] - 2021-08-09
-#### Changed
+## [1.0.0] - 2021-08-09
+### Changed
 - Upgrade to nette 3.0
 
-### [0.3.2] - 2021-04-27
-#### Fixed
+## [0.3.2] - 2021-04-27
+### Fixed
 - Setup for default preprocessor and use it for unknown types
 
-### [0.3.1] - 2021-04-26
-#### Fixed
+## [0.3.1] - 2021-04-26
+### Fixed
 - htmlspecialchars and strip_tags for urls (canonical, prev, next, og:url, twitter:url)
 
-### [0.3.0] - 2019-11-18
-#### Added
+## [0.3.0] - 2019-11-18
+### Added
 - Added missing magic reset* methods
 
-### [0.2.0] - 2019-03-20
-#### Added
+## [0.2.0] - 2019-03-20
+### Added
 - Added support for next and prev meta data
 
-### [0.1.4] - 2017-07-04
-#### Changed
+## [0.1.4] - 2017-07-04
+### Changed
 - Methods of BaseMetaData: set, add, reset are public
 - Methods of BaseMetaData: get, alias are final
 
-### [0.1.3] - 2017-01-03
-#### Fixed
+## [0.1.3] - 2017-01-03
+### Fixed
 - Changed escaping function from htmlentities to htmlspecialchars
 
-### [0.1.2] - 2017-01-02
-#### Fixed
+## [0.1.2] - 2017-01-02
+### Fixed
 - Quotes escaping in meta contents
 
-### [0.1.1] - 2016-07-26
-#### Fixed
+## [0.1.1] - 2016-07-26
+### Fixed
 - Removed aliases from DefaultGenerator
 
-### [0.1.0] - 2016-05-19
-#### Added
+## [0.1.0] - 2016-05-19
+### Added
 - BaseMetaData
 - Facebook and Twitter traits for meta data
 - Renderers
