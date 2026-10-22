@@ -2,6 +2,7 @@
 
 ## [Unreleased][unreleased]
 
+## [2.1.0] - 2026-10-22
 ### Added
 - Support for php 8.6
 
@@ -73,7 +74,8 @@
 - Renderers
 - Nette component
 
-[unreleased]: https://github.com/lulco/seo-helper/compare/2.0.1...HEAD
+[unreleased]: https://github.com/lulco/seo-helper/compare/2.1.0...HEAD
+[2.1.0]: https://github.com/lulco/seo-helper/compare/2.0.1...2.1.0
 [2.0.1]: https://github.com/lulco/seo-helper/compare/2.0.0...2.0.1
 [2.0.0]: https://github.com/lulco/seo-helper/compare/1.2.0...2.0.0
 [1.2.0]: https://github.com/lulco/seo-helper/compare/1.1.0...1.2.0
