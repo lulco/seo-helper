@@ -2,6 +2,9 @@
 
 ## [Unreleased][unreleased]
 
+### Added
+- Support for php 8.6
+
 ## [2.0.1] - 2026-05-13
 ### Fixed
 - Twitter renderer pattern - use name instead of property
